@@ -149,3 +149,8 @@ router.get('/logout', isLoggedIn, (req, res)=> {
 });
 
 module.exports = router;
+
+
+
+
+//bLk6sO7Mv8JaK0Yc

@@ -41,11 +41,11 @@ app.use('/', routes);
 
 
 
+const dbUrl = 'mongodb+srv://devanshthakur191:bLk6sO7Mv8JaK0Yc@cluster0.dljbogt.mongodb.net/?retryWrites=true&w=majority'
 
 
 
-
-mongoose.connect('mongodb://localhost/pdf_manager', {
+mongoose.connect(dbUrl || 'mongodb://localhost/pdf_manager', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
