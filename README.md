@@ -1,5 +1,7 @@
 # Web Server Documentation
 
+To play around with this web: https://pdf-management-j78c.onrender.com/
+
 ## Table of Contents
 1. Introduction
 2. Project Setup
@@ -63,31 +65,18 @@ These tools and technologies work together to build a robust and scalable web se
 The project structure is organized as follows:
 
 ```
-- app.js
-- controllers/
-  - authController.js
-  - pdfController.js
-- models/
-  - User.js
-  - PDF.js
-- public/
-  - css/
-    - styles.css
-  - js/
-    - main.js
-- routes/
-  - authRoutes.js
-  - pdfRoutes.js
-- views/
-  - layouts/
-    - main.hbs
-  - auth/
-    - login.hbs
-    - register.hbs
-  - pdf/
-    - upload.hbs
-    - preview.hbs
-- uploads/
+-src
+   -controllers
+   -models
+      -Comment.js
+      -File.js
+      -User.js
+   -public\uploads
+   -routes
+      -routes.js
+   -views
+   -middleware.js
+   -seever.js
 ```
 
 ## 3. User Registration
@@ -144,7 +133,7 @@ Use the Passport middleware to handle user authentication and session management
   - Error: `400 Bad Request` with an error message.
 
 ### File Storage
-Use Multer middleware to handle file uploads. The uploaded PDF files are stored in the `/publicuploads/` directory on the server.
+Use Multer middleware to handle file uploads. The uploaded PDF files are stored in the `/public/uploads/` directory on the server.
 
 ### Frontend Integration
 1. Create an upload form with a file input for selecting a PDF file.
@@ -159,11 +148,9 @@ Use Multer middleware to handle file uploads. The uploaded PDF files are stored 
 ## 7. Sharing PDF
 
 ### Sharing API
-- Endpoint: `POST /share/:pdfId`
-- Request Parameters:
-  - `pdfId` (string): Unique identifier for the PDF.
+- Endpoint: `POST /share`
 - Request Payload:
-  - `username` (string): Username of the user to share the PDF with.
+  - `email` (string): email of the user to share the PDF with.
 - Response:
   - Success: `200 OK` with a success message.
   - Error: `400 Bad Request` with an error message.
@@ -176,9 +163,7 @@ Use Multer middleware to handle file uploads. The uploaded PDF files are stored 
 ## 8. Comment on PDF
 
 ### Comment API
-- Endpoint: `POST /comment/:pdfId`
-- Request Parameters:
-  - `pdfId` (string): Unique identifier for the PDF.
+- Endpoint: `POST /comments`
 - Request Payload:
   - `comment` (string): The comment text.
 - Response:
@@ -209,9 +194,9 @@ Use Multer middleware to handle file uploads. The uploaded PDF files are stored 
 2. Create a new web service and configure it with the necessary settings, such as selecting Node.js as the runtime and specifying the deployment branch from the GitHub repository.
 3. Connect the Render.com service to your GitHub repository.
 4. Configure the necessary environment variables, such as database connection details.
-5. Deploy the
+5. Deploy the web server to Render.com using the provided deployment configuration.
 
-web server to Render.com using the provided deployment configuration.
+
 
 ### GitHub Integration
 1. Create a new repository on GitHub.
